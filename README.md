@@ -1,4 +1,4 @@
-# eventlistener-resize
+# 🐡 eventlistener-resize
 
 [![Build Status](https://travis-ci.org/ItsJonQ/eventlistener-resize.svg?branch=master)](https://travis-ci.org/ItsJonQ/eventlistener-resize)
 [![npm version](https://badge.fury.io/js/eventlistener-resize.svg)](https://badge.fury.io/js/eventlistener-resize)
