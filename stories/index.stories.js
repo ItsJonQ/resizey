@@ -42,8 +42,9 @@ storiesOf('Resize', module).add('Example', () => {
       })
     }
 
-    onResizeEnd = () => {
+    onResizeEnd = eventData => {
       this.setState({
+        eventData: eventData,
         state: 'resizeEnd',
       })
       requestAnimationFrame(() => {
