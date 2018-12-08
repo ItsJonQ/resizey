@@ -3,7 +3,7 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 import '../src/index'
 
-storiesOf('Welcome', module).add('to Storybook', () => {
+storiesOf('Resize', module).add('Example', () => {
   class Example extends React.PureComponent {
     state = {
       event: true,
@@ -62,12 +62,18 @@ storiesOf('Welcome', module).add('to Storybook', () => {
             deltaHeight: {data.deltaHeight}
             <br />
           </div>
-          <textarea ref={this.setNodeRef} />
+          <textarea ref={this.setNodeRef} placeholder="Resize me" />
           <br />
           <div
             ref={this.setSubjectNodeRef}
-            style={{background: 'blue', transition: 'all 0.2s ease'}}
-          />
+            style={{
+              background: 'blue',
+              color: 'white',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            I'll be half the size + an animation delay
+          </div>
           <br />
         </div>
       )
