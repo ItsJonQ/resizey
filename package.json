@@ -21,12 +21,10 @@
     "validate": "zero validate",
     "precommit": "zero precommit",
     "start": "npm run dev",
-    "test": "zero test",
-    "test:ci": "zero test",
-    "test:coverage": "zero test --coverage",
+    "test": "zero test --coverage",
     "clean": "rm -rf dist lib build",
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
-    "release": "np"
+    "release": "np -- --no-cleanup"
   },
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "repository": {
