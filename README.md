@@ -5,8 +5,6 @@
 
 > A tiny library to add/remove listeners on Element resize
 
-# This is still a work in progress! It should be ready soon 🤗
-
 ## Table of contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
