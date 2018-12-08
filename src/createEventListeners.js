@@ -2,6 +2,10 @@ import handlers from './handlers'
 import listeners from './listeners'
 import ResizeListener from './ResizeListener'
 
+/**
+ * Enhances the default addEventListener/removeEventListener
+ * Element prototype to listen for our custom "resize" event.
+ */
 function createEventListeners() {
   const addEventListenerRef = Element.prototype.addEventListener
   const removeEventListenerRef = Element.prototype.removeEventListener

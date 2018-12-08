@@ -1,3 +1,7 @@
+/**
+ * Stores the collection of listeners for the resize events.
+ * @returns { Object } Methods for Listeners
+ */
 function Listeners() {
   let state = []
 

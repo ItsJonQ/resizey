@@ -2,7 +2,6 @@ import listeners from './listeners'
 /**
  * The dedicated event loop, powered by requestAnimationFrame, for our
  * resize listener events.
- * @param listeners { Array<Listener> } Collection of listners.
  * @returns { Object } Methods for the EventLoop
  */
 function EventLoop() {

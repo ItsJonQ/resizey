@@ -1,5 +1,6 @@
 /**
  * Stores the collection of handlers for the resize events.
+ * @returns { Object } Methods for Handlers
  */
 function Handlers() {
   let state = {}
