@@ -21,8 +21,7 @@
 ## Features
 
 - **Zero dependencies!**
-- Super tiny, at ~600B gzipped
-- Perfect for library use
+- Super tiny, at ~800B gzipped
 
 ## Installation
 

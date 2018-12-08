@@ -22,13 +22,19 @@ function createEventListeners() {
     return addEvent(event, handler, ...args)
   }
 
-  Element.prototype.removeEventListener = function(event, listener, ...args) {
+  Element.prototype.removeEventListener = function(event, handler, ...args) {
     const removeEvent = removeEventListenerRef.bind(this)
     // Removing the custom resize event
     if (event === 'resize' && this !== window) {
+      let listener = listeners.find(this)
+      handlers.removeHandler(listener.id, handler)
+      // Remove reference to DOM node, if it no longer exists
+      if (!document.contains(listener.element)) {
+        listeners.remove(listener)
+      }
     }
     // Execute the default removeEventHandler function
-    return removeEvent(event, listener, ...args)
+    return removeEvent(event, handler, ...args)
   }
 }
 

@@ -1,39 +1,9 @@
-import listeners from './listeners'
-/**
- * The dedicated event loop, powered by requestAnimationFrame, for our
- * resize listener events.
- * @param listeners { Array<Listener> } Collection of listners.
- * @returns { Object } Methods for the EventLoop
- */
-function EventLoop() {
-  const state = {
-    keepEventLoopOpen: true,
-  }
+import createEventLoop from './createEventLoop'
+import {EVENT_LOOP_KEY} from './utils'
 
-  function run() {
-    if (!state.keepEventLoopOpen) {
-      cancelAnimationFrame(start)
-    }
-    listeners.dispatch()
-    requestAnimationFrame(start)
-  }
-
-  function start() {
-    state.keepEventLoopOpen = true
-    run()
-  }
-
-  function stop() {
-    state.keepEventLoopOpen = false
-  }
-
-  start()
-
-  return {
-    start,
-    run,
-    stop,
-  }
+let eventLoop = global[EVENT_LOOP_KEY]
+if (!global[EVENT_LOOP_KEY]) {
+  eventLoop = global[EVENT_LOOP_KEY] = createEventLoop()
 }
 
-export default EventLoop
+export default eventLoop

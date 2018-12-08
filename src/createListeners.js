@@ -20,12 +20,18 @@ function Listeners() {
     return state
   }
 
+  function remove(listener) {
+    if (!listener) return
+    state.splice(state.indexOf(listener), 1)
+  }
+
   function clear() {
     state = []
   }
 
   return {
     add,
+    remove,
     find,
     dispatch,
     getState,

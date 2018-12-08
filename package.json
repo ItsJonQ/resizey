@@ -24,7 +24,9 @@
     "test": "zero test --coverage",
     "clean": "rm -rf dist lib build",
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
-    "release": "np --no-cleanup"
+    "release": "np --no-cleanup",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "repository": {
@@ -52,6 +54,14 @@
     "babel-core": "6.26.3",
     "microbundle": "0.8.3",
     "np": "3.0.4",
-    "nyc": "13.1.0"
-  }
+    "nyc": "13.1.0",
+    "react": "16.6.3",
+    "react-dom": "16.6.3",
+    "@storybook/react": "^4.0.12",
+    "@storybook/addon-actions": "^4.0.12",
+    "@storybook/addon-links": "^4.0.12",
+    "@storybook/addons": "^4.0.12",
+    "babel-loader": "^7.1.5"
+  },
+  "dependencies": {}
 }

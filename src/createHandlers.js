@@ -24,6 +24,14 @@ function Handlers() {
     }
   }
 
+  function removeHandler(id, handler) {
+    const listener = get(id)
+    if (!listener) return
+    if (listener.indexOf(handler) !== -1) {
+      listener.splice(handler, 1)
+    }
+  }
+
   function remove(id, handler) {
     if (!state[id]) return
     delete state[id]
@@ -41,6 +49,7 @@ function Handlers() {
     add,
     get,
     remove,
+    removeHandler,
     getState,
     clear,
     dispatch,
