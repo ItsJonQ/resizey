@@ -23,15 +23,16 @@ storiesOf('Resize', module).add('Example', () => {
 
     onResize = eventData => {
       this.setState({
-        eventData: eventData,
+        eventData,
         state: 'resize',
       })
       this.subjectNode.style.width = `${eventData.width / 2}px`
       this.subjectNode.style.height = `${eventData.height / 2}px`
     }
 
-    onResizeStart = () => {
+    onResizeStart = eventData => {
       this.setState({
+        eventData,
         state: 'resizeStart',
       })
       requestAnimationFrame(() => {
@@ -44,7 +45,7 @@ storiesOf('Resize', module).add('Example', () => {
 
     onResizeEnd = eventData => {
       this.setState({
-        eventData: eventData,
+        eventData,
         state: 'resizeEnd',
       })
       requestAnimationFrame(() => {
@@ -85,13 +86,7 @@ storiesOf('Resize', module).add('Example', () => {
             <br />
             Resize: {this.state.state}
             <br />
-            width: {data.width}
-            <br />
-            height: {data.height}
-            <br />
-            deltaWidth: {data.deltaWidth}
-            <br />
-            deltaHeight: {data.deltaHeight}
+            {JSON.stringify(this.state.eventData)}
             <br />
           </div>
           <textarea

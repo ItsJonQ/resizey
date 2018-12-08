@@ -1,9 +1,7 @@
 import ResizeListener from '../ResizeListener'
-import handlers from '../handlers'
 import listeners from '../listeners'
 
 afterEach(() => {
-  handlers.clear()
   listeners.clear()
 })
 

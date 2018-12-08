@@ -1,5 +1,4 @@
 import createEventListeners from '../createEventListeners'
-import handlers from '../handlers'
 import listeners from '../listeners'
 
 const addEventListenerRef = Element.prototype.addEventListener
@@ -12,7 +11,6 @@ beforeEach(() => {
 afterEach(() => {
   Element.prototype.addEventListener = addEventListenerRef
   Element.prototype.removeEventListener = removeEventListenerRef
-  handlers.clear()
   listeners.clear()
 })
 
@@ -65,32 +63,23 @@ test('Can add/remove event custom listeners', () => {
   expect(spy).toHaveBeenCalledTimes(2)
 })
 
-test('Adds resize events to handlers/listeners on elements', () => {
+test('Adds resize events to listeners on elements', () => {
   const spy = jest.fn()
   const el = document.createElement('div')
 
-  expect(Object.keys(handlers.getState()).length).toBe(0)
   expect(listeners.getState().length).toBe(0)
 
   el.addEventListener('resize', spy)
 
-  expect(Object.keys(handlers.getState()).length).toBe(1)
   expect(listeners.getState().length).toBe(1)
-
-  const listener = listeners.getState()[0]
-  const handler = handlers.get(listener.id)
-
-  expect(handler.resize[0]).toBe(spy)
 })
 
-test('Does not add resize events to handlers/listeners on window', () => {
+test('Does not add resize events to listeners on window', () => {
   const spy = jest.fn()
 
-  expect(Object.keys(handlers.getState()).length).toBe(0)
   expect(listeners.getState().length).toBe(0)
 
   window.addEventListener('resize', spy)
 
-  expect(Object.keys(handlers.getState()).length).toBe(0)
   expect(listeners.getState().length).toBe(0)
 })

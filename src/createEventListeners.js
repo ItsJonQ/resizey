@@ -1,4 +1,3 @@
-import handlers from './handlers'
 import listeners from './listeners'
 import ResizeListener from './ResizeListener'
 import {SUPPORTED_EVENTS} from './utils'
@@ -20,8 +19,6 @@ function createEventListeners() {
         listener = new ResizeListener(this, handler)
         listeners.add(listener)
       }
-
-      handlers.add(listener.id, event, handler)
     }
     // Execute the default addEventHandler function
     return addEvent(event, handler, ...args)
@@ -32,7 +29,6 @@ function createEventListeners() {
     // Removing the custom resize event
     if (SUPPORTED_EVENTS.includes(event) && this !== window) {
       let listener = listeners.find(this)
-      handlers.removeHandler(listener.id, event, handler)
       // Remove reference to DOM node, if it no longer exists
       if (!document.contains(listener.element)) {
         listeners.remove(listener)

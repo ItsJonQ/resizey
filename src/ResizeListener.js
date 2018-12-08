@@ -1,4 +1,3 @@
-import handlers from './handlers'
 import {uuid} from './utils'
 import ResizeEvent from './ResizeEvent'
 
@@ -37,8 +36,7 @@ function ResizeListener(element, handler) {
 
     if (deltaHeight + deltaWidth === 0) {
       if (state.t === 1) {
-        handlers.dispatch(
-          this.id,
+        element.dispatchEvent(
           new ResizeEvent({
             element,
             type: 'resizeEnd',
@@ -53,8 +51,7 @@ function ResizeListener(element, handler) {
       updateSize()
 
       if (state.t === 0) {
-        handlers.dispatch(
-          this.id,
+        element.dispatchEvent(
           new ResizeEvent({
             element,
             type: 'resizeStart',
@@ -63,8 +60,7 @@ function ResizeListener(element, handler) {
           }),
         )
       } else {
-        handlers.dispatch(
-          this.id,
+        element.dispatchEvent(
           new ResizeEvent({
             element,
             type: 'resize',
