@@ -15,6 +15,7 @@
     "build:postclean": "rm -rf dist/__tests__ && rm -rf dist/__fixtures__",
     "bundle": "microbundle --output build",
     "dev": "zero test --watchAll",
+    "git:push": "git push --follow-tags",
     "lint": "zero lint",
     "format": "zero format",
     "validate": "zero validate",
