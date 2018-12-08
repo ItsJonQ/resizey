@@ -10,7 +10,9 @@
     "dist"
   ],
   "scripts": {
+    "prestart": "prestart",
     "build": "zero build",
+    "build:postclean": "rm -rf dist/__tests__ && rm -rf dist/__fixtures__",
     "bundle": "microbundle --output build",
     "dev": "zero test --watchAll",
     "lint": "zero lint",
@@ -19,7 +21,16 @@
     "precommit": "zero precommit",
     "start": "npm run dev",
     "test": "zero test",
-    "test:coverage": "zero test --coverage"
+    "test:ci": "zero test",
+    "test:coverage": "zero test --coverage",
+    "clean": "rm -rf dist lib build",
+    "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
+    "release": "npm run test && npm version",
+    "release:patch": "npm run release -- patch",
+    "release:minor": "npm run release -- minor",
+    "release:major": "npm run release -- major",
+    "version": "npm run build",
+    "postversion": "npm publish && npm run git:push"
   },
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "repository": {
@@ -42,6 +53,7 @@
     "node": ">=8"
   },
   "devDependencies": {
+    "@helpscout/prestart": "0.0.9",
     "@helpscout/zero": "0.0.10",
     "babel-core": "6.26.3",
     "microbundle": "0.8.3",
