@@ -1,5 +1,3 @@
-import EventLoop from './EventLoop'
-import ResizeListener from './ResizeListener'
+import createEventListeners from './createEventListeners'
 
-console.log(EventLoop)
-console.log(ResizeListener)
+createEventListeners()

@@ -1,23 +1,20 @@
+import listeners from './listeners'
 /**
  * The dedicated event loop, powered by requestAnimationFrame, for our
  * resize listener events.
  * @param listeners { Array<Listener> } Collection of listners.
  * @returns { Object } Methods for the EventLoop
  */
-function EventLoop({listeners} = {listeners: []}) {
+function EventLoop() {
   const state = {
-    listeners,
     keepEventLoopOpen: true,
   }
 
   function run() {
-    const {listeners} = state
     if (!state.keepEventLoopOpen) {
       cancelAnimationFrame(start)
     }
-    for (let i = 0, len = listeners.length; i < len; i++) {
-      listeners[i].broadcast()
-    }
+    listeners.dispatch()
     requestAnimationFrame(start)
   }
 

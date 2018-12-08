@@ -1,4 +1,9 @@
 import EventLoop from '../EventLoop'
+import listeners from '../listeners'
+
+afterEach(() => {
+  listeners.clear()
+})
 
 test('Creates an instance with start/stop methods', () => {
   const loop = new EventLoop()
@@ -9,7 +14,7 @@ test('Creates an instance with start/stop methods', () => {
 
 test('Automatically starts loop on instantiation', () => {
   const spy = jest.spyOn(global, 'requestAnimationFrame')
-  const loop = new EventLoop()
+  new EventLoop()
 
   expect(spy).toHaveBeenCalled()
 
@@ -29,13 +34,14 @@ test('Stops the loop, when .stop() method is called', () => {
   spy.mockRestore()
 })
 
-test('Tries to broadcast listener on run', () => {
+test('Tries to dispatch listener on run', () => {
   const spy = jest.fn()
   const listener = {
-    broadcast: spy,
+    dispatch: spy,
   }
+  listeners.add(listener)
 
-  new EventLoop({listeners: [listener]})
+  new EventLoop()
 
   expect(spy).toHaveBeenCalled()
 })

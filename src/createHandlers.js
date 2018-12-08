@@ -15,6 +15,15 @@ function Handlers() {
     return state[id]
   }
 
+  function dispatch(id, eventProps) {
+    const handler = get(id)
+    if (!handler) return
+    // Find the associated handlers and execute them
+    for (let i = 0, len = handler.length; i < len; i++) {
+      handler[i](eventProps)
+    }
+  }
+
   function remove(id, handler) {
     if (!state[id]) return
     delete state[id]
@@ -34,6 +43,7 @@ function Handlers() {
     remove,
     getState,
     clear,
+    dispatch,
   }
 }
 

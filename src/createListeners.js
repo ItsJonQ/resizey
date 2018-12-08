@@ -10,6 +10,12 @@ function Listeners() {
     return state.find(i => i.element === element)
   }
 
+  function dispatch() {
+    for (let i = 0, len = state.length; i < len; i++) {
+      state[i].dispatch()
+    }
+  }
+
   function getState() {
     return state
   }
@@ -21,6 +27,7 @@ function Listeners() {
   return {
     add,
     find,
+    dispatch,
     getState,
     clear,
   }

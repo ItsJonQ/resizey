@@ -1,19 +1,19 @@
 import handlers from './handlers'
-import listeners from './listeners'
 import {uuid} from './utils'
 
 /**
- * Checks for and broadcasts a custom "resize" event when an Element's
+ * Checks for and dispatches a custom "resize" event when an Element's
  * dimension changes.
  *
  * @param {HTMLElement} element The DOM node to watch for resize events.
+ * @param {Function} handler The callback function on resize event.
  * @returns {Object} Methods for the listener.
  */
-function ResizeListener(element) {
+function ResizeListener(element, handler) {
   this.id = uuid()
   this.element = element
   this.getState = getState
-  this.broadcast = broadcast
+  this.dispatch = dispatch
 
   const state = {
     handlers,
@@ -27,7 +27,7 @@ function ResizeListener(element) {
     state.width = element.clientWidth
   }
 
-  function broadcast() {
+  function dispatch() {
     const deltaHeight = element.clientHeight - state.height
     const deltaWidth = element.clientWidth - state.width
 
@@ -35,21 +35,14 @@ function ResizeListener(element) {
 
     updateSize()
 
-    const eventProps = {
+    handlers.dispatch(this.id, {
       target: element,
       type: 'resize',
       width: element.clientWidth,
       height: element.clientHeight,
       deltaHeight,
       deltaWidth,
-    }
-
-    const handler = handlers.get(this.id)
-
-    // Find the associated handlers and execute them
-    for (let i = 0, len = handler.length; i < len; i++) {
-      handler[i](eventProps)
-    }
+    })
   }
 
   function getState() {
@@ -58,7 +51,6 @@ function ResizeListener(element) {
 
   // Initialize
   updateSize()
-  listeners.add(this)
 
   return this
 }
