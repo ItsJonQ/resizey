@@ -1,16 +1,15 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [eventlistener-resize](#eventlistener-resize)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [Usage](#usage)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # eventlistener-resize
 
 > A tiny library to add/remove listeners on Element resize
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Features
 
