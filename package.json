@@ -1,10 +1,12 @@
 {
   "name": "eventlistener-resize",
   "version": "0.0.1",
-  "description": "",
+  "description": "A tiny library to add/remove listeners on Element resize",
   "main": "dist/index.js",
   "source": "src/index.js",
   "files": [
+    "README.md",
+    "LICENSE",
     "dist"
   ],
   "scripts": {
@@ -20,7 +22,25 @@
     "test:coverage": "zero test --coverage"
   },
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsjonq/eventlistener-resize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itsjonq/eventlistener-resize/issues"
+  },
   "license": "MIT",
+  "keywords": [
+    "resize",
+    "element",
+    "eventlistener",
+    "event",
+    "addeventlistener",
+    "removeeventlistener"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
   "devDependencies": {
     "@helpscout/zero": "0.0.10",
     "babel-core": "6.26.3",
