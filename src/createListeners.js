@@ -1,3 +1,5 @@
+import ResizeListener from './ResizeListener'
+
 /**
  * Stores the collection of listeners for the resize events.
  * @returns { Object } Methods for Listeners
@@ -7,6 +9,20 @@ function Listeners() {
 
   function add(listener) {
     state.push(listener)
+  }
+
+  function addEventListener(element, handler) {
+    if (!find(element)) {
+      add(new ResizeListener(element, handler))
+    }
+  }
+
+  function removeEventListener(element) {
+    const listener = find(element)
+    // Remove reference to DOM node, if it no longer exists
+    if (!document.contains(listener.element)) {
+      remove(listener)
+    }
   }
 
   function find(element) {
@@ -35,11 +51,13 @@ function Listeners() {
 
   return {
     add,
-    remove,
-    find,
-    dispatch,
-    getState,
+    addEventListener,
     clear,
+    dispatch,
+    find,
+    getState,
+    remove,
+    removeEventListener,
   }
 }
 

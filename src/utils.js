@@ -17,7 +17,3 @@ function getId() {
  * @returns { string }
  */
 export const uuid = getId()
-
-export function noop() {
-  return undefined
-}

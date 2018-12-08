@@ -14,11 +14,7 @@ function createEventListeners() {
     const addEvent = addEventListenerRef.bind(this)
     // Adding the custom resize event
     if (SUPPORTED_EVENTS.includes(event) && this !== window) {
-      let listener = listeners.find(this)
-      if (!listener) {
-        listener = new ResizeListener(this, handler)
-        listeners.add(listener)
-      }
+      listeners.addEventListener(this, handler)
     }
     // Execute the default addEventHandler function
     return addEvent(event, handler, ...args)
@@ -28,11 +24,7 @@ function createEventListeners() {
     const removeEvent = removeEventListenerRef.bind(this)
     // Removing the custom resize event
     if (SUPPORTED_EVENTS.includes(event) && this !== window) {
-      let listener = listeners.find(this)
-      // Remove reference to DOM node, if it no longer exists
-      if (!document.contains(listener.element)) {
-        listeners.remove(listener)
-      }
+      listeners.removeEventListener(this, handler)
     }
     // Execute the default removeEventHandler function
     return removeEvent(event, handler, ...args)
