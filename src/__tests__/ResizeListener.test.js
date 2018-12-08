@@ -20,8 +20,8 @@ test('Attempts to set dimensions from an element on instantiation', () => {
 
   const state = listener.getState()
 
-  expect(state.height).toBe(200)
-  expect(state.width).toBe(250)
+  expect(state.h).toBe(200)
+  expect(state.w).toBe(250)
 })
 
 test('Does not have dimension values if no element is provided', () => {
@@ -29,19 +29,6 @@ test('Does not have dimension values if no element is provided', () => {
 
   const state = listener.getState()
 
-  expect(state.height).toBe(0)
-  expect(state.width).toBe(0)
+  expect(state.h).toBe(0)
+  expect(state.w).toBe(0)
 })
-
-// test("Automatically adds listeners on creation", () => {
-//   const mockElement = { clientHeight: 200, clientWidth: 250 };
-//   const listener = new ResizeListener(mockElement);
-
-//   expect(listeners.find(mockElement)).toBe(listener);
-// });
-
-// test('Dispatches associated handlers on resize', () => {
-//   const mockElement = {clientHeight: 200, clientWidth: 250}
-//   const listener = new ResizeListener(mockElement)
-
-// })

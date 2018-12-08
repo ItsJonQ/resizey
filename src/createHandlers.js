@@ -1,3 +1,4 @@
+import {createHandlersCollection} from './utils'
 /**
  * Stores the collection of handlers for the resize events.
  * @returns { Object } Methods for Handlers
@@ -5,11 +6,13 @@
 function Handlers() {
   let state = {}
 
-  function add(id, handler) {
+  function add(id, event, handler) {
     if (!state[id]) {
-      state[id] = []
+      state[id] = createHandlersCollection()
     }
-    state[id].push(handler)
+    if (state[id][event]) {
+      state[id][event].push(handler)
+    }
   }
 
   function get(id) {
@@ -19,17 +22,20 @@ function Handlers() {
   function dispatch(id, eventProps) {
     const handler = get(id)
     if (!handler) return
+    const event = eventProps.type
+    const events = handler[event]
+    if (!events) return
     // Find the associated handlers and execute them
-    for (let i = 0, len = handler.length; i < len; i++) {
-      handler[i](eventProps)
+    for (let i = 0, len = events.length; i < len; i++) {
+      events[i](eventProps)
     }
   }
 
-  function removeHandler(id, handler) {
+  function removeHandler(id, event, handler) {
     const listener = get(id)
     if (!listener) return
-    if (listener.indexOf(handler) !== -1) {
-      listener.splice(handler, 1)
+    if (listener[event].indexOf(handler) !== -1) {
+      listener[event].splice(handler, 1)
     }
   }
 

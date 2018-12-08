@@ -11,19 +11,47 @@ storiesOf('Resize', module).add('Example', () => {
     }
     componentDidMount() {
       this.node.addEventListener('resize', this.onResize)
+      this.node.addEventListener('resizeStart', this.onResizeStart)
+      this.node.addEventListener('resizeEnd', this.onResizeEnd)
     }
 
     componentWillUnmount() {
       this.node.removeEventListener('resize', this.onResize)
+      this.node.removeEventListener('resizeStart', this.onResizeStart)
+      this.node.removeEventListener('resizeEnd', this.onResizeEnd)
     }
 
     onResize = eventData => {
-      console.log(eventData)
       this.setState({
         eventData: eventData,
+        state: 'resize',
       })
       this.subjectNode.style.width = `${eventData.width / 2}px`
       this.subjectNode.style.height = `${eventData.height / 2}px`
+    }
+
+    onResizeStart = () => {
+      this.setState({
+        state: 'resizeStart',
+      })
+      requestAnimationFrame(() => {
+        this.subjectNode.style.background = 'red'
+        setTimeout(() => {
+          this.subjectNode.style.background = 'blue'
+        }, 500)
+      })
+    }
+
+    onResizeEnd = () => {
+      this.setState({
+        state: 'resizeEnd',
+      })
+      requestAnimationFrame(() => {
+        this.subjectNode.style.background = 'purple'
+        setTimeout(() => {
+          this.subjectNode.style.background = 'blue'
+        }, 500)
+      })
     }
 
     add = () => {
@@ -54,6 +82,8 @@ storiesOf('Resize', module).add('Example', () => {
             <br />
             Enabled: {event ? 'on' : 'off'}
             <br />
+            Resize: {this.state.state}
+            <br />
             width: {data.width}
             <br />
             height: {data.height}
@@ -63,7 +93,10 @@ storiesOf('Resize', module).add('Example', () => {
             deltaHeight: {data.deltaHeight}
             <br />
           </div>
-          <textarea ref={this.setNodeRef} placeholder="Resize me" />
+          <textarea
+            ref={this.setNodeRef}
+            placeholder="Resize me. Square will change color on resizeEnd"
+          />
           <br />
           <div
             ref={this.setSubjectNodeRef}

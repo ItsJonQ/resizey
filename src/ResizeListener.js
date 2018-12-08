@@ -1,5 +1,6 @@
 import handlers from './handlers'
-import {uuid, noop} from './utils'
+import {uuid} from './utils'
+import ResizeEvent from './ResizeEvent'
 
 /**
  * Checks for and dispatches a custom "resize" event when an Element's
@@ -16,37 +17,64 @@ function ResizeListener(element, handler) {
   this.dispatch = dispatch
 
   const state = {
-    handlers,
-    height: 0,
-    width: 0,
+    // height
+    h: 0,
+    // width
+    w: 0,
+    // transitionState
+    t: 0,
   }
 
   function updateSize() {
     if (!element) return
-    state.height = element.clientHeight
-    state.width = element.clientWidth
+    state.h = element.clientHeight
+    state.w = element.clientWidth
   }
 
   function dispatch() {
-    const deltaHeight = element.clientHeight - state.height
-    const deltaWidth = element.clientWidth - state.width
+    const deltaHeight = element.clientHeight - state.h
+    const deltaWidth = element.clientWidth - state.w
 
-    if (deltaHeight + deltaWidth === 0) return
+    if (deltaHeight + deltaWidth === 0) {
+      if (state.t === 1) {
+        handlers.dispatch(
+          this.id,
+          new ResizeEvent({
+            element,
+            type: 'resizeEnd',
+            deltaHeight,
+            deltaWidth,
+          }),
+        )
+        state.t = 0
+      }
+      state.t = 0
+    } else {
+      updateSize()
 
-    updateSize()
-
-    handlers.dispatch(this.id, {
-      target: element,
-      type: 'resize',
-      width: element.clientWidth,
-      height: element.clientHeight,
-      deltaHeight,
-      deltaWidth,
-      currentTarget: element,
-      cancelBubble: noop,
-      preventDefault: noop,
-      stopPropagation: noop,
-    })
+      if (state.t === 0) {
+        handlers.dispatch(
+          this.id,
+          new ResizeEvent({
+            element,
+            type: 'resizeStart',
+            deltaHeight,
+            deltaWidth,
+          }),
+        )
+      } else {
+        handlers.dispatch(
+          this.id,
+          new ResizeEvent({
+            element,
+            type: 'resize',
+            deltaHeight,
+            deltaWidth,
+          }),
+        )
+      }
+      state.t = 1
+    }
   }
 
   function getState() {

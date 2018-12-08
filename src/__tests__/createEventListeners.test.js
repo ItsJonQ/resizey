@@ -80,7 +80,7 @@ test('Adds resize events to handlers/listeners on elements', () => {
   const listener = listeners.getState()[0]
   const handler = handlers.get(listener.id)
 
-  expect(handler[0]).toBe(spy)
+  expect(handler.resize[0]).toBe(spy)
 })
 
 test('Does not add resize events to handlers/listeners on window', () => {

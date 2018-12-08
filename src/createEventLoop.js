@@ -7,11 +7,11 @@ import listeners from './listeners'
 function EventLoop() {
   const state = {
     debug: undefined,
-    keepEventLoopOpen: true,
+    keep: true,
   }
 
   function run(args) {
-    if (!state.keepEventLoopOpen) {
+    if (!state.keep) {
       cancelAnimationFrame(start)
     }
     listeners.dispatch()
@@ -26,12 +26,12 @@ function EventLoop() {
   }
 
   function start(args) {
-    state.keepEventLoopOpen = true
+    state.keep = true
     run(args)
   }
 
   function stop() {
-    state.keepEventLoopOpen = false
+    state.keep = false
   }
 
   function debug(fn) {

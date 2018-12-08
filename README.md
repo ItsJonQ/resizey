@@ -19,7 +19,7 @@
 ## Features
 
 - **Zero dependencies!**
-- Super tiny, at ~800B gzipped
+- Super tiny, at ~1KB gzipped
 
 ## Installation
 
@@ -35,9 +35,13 @@ import 'eventlistener-resize'
 ...
 
 const element = document.querySelector('.el')
+element.addEventListener('resizeStart', resizeStartEventCallback)
 element.addEventListener('resize', resizeEventCallback)
+element.addEventListener('resizeEnd', resizeEndEventCallback)
 
 ...
 
+element.removeEventListener('resizeStart', resizeStartEventCallback)
 element.removeEventListener('resize', resizeEventCallback)
+element.removeEventListener('resizeEnd', resizeEndEventCallback)
 ```
