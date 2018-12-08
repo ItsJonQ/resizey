@@ -1,4 +1,4 @@
-# eventlistener-resize
+# event-listener-resize
 
 > A tiny library to add/remove listeners on Element resize
 
@@ -20,13 +20,13 @@
 ## Installation
 
 ```
-npm install --save eventlistener-resize
+npm install --save event-listener-resize
 ```
 
 ## Usage
 
 ```
-import eventListenerResize from 'eventlistener-resize'
+import eventListenerResize from 'event-listener-resize'
 
 ...
 
