@@ -1,5 +1,7 @@
 # eventlistener-resize
 
+[![Build Status](https://travis-ci.org/ItsJonQ/eventlistener-resize.svg?branch=master)](https://travis-ci.org/ItsJonQ/eventlistener-resize)
+
 > A tiny library to add/remove listeners on Element resize
 
 # This is still a work in progress! It should be ready soon 🤗
