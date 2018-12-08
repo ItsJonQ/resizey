@@ -26,12 +26,7 @@
     "test:coverage": "zero test --coverage",
     "clean": "rm -rf dist lib build",
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
-    "release": "npm run test && npm version",
-    "release:patch": "npm run release -- patch",
-    "release:minor": "npm run release -- minor",
-    "release:major": "npm run release -- major",
-    "version": "npm run build",
-    "postversion": "npm publish && npm run git:push"
+    "release": "np"
   },
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "repository": {
