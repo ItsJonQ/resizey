@@ -24,7 +24,7 @@
     "test": "zero test --coverage",
     "clean": "rm -rf dist lib build",
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
-    "release": "np -- --no-cleanup"
+    "release": "np --no-cleanup"
   },
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "repository": {
