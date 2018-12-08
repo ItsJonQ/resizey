@@ -18,6 +18,7 @@ storiesOf('Resize', module).add('Example', () => {
     }
 
     onResize = eventData => {
+      console.log(eventData)
       this.setState({
         eventData: eventData,
       })

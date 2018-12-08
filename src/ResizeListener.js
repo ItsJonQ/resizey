@@ -1,5 +1,5 @@
 import handlers from './handlers'
-import {uuid} from './utils'
+import {uuid, noop} from './utils'
 
 /**
  * Checks for and dispatches a custom "resize" event when an Element's
@@ -42,6 +42,10 @@ function ResizeListener(element, handler) {
       height: element.clientHeight,
       deltaHeight,
       deltaWidth,
+      currentTarget: element,
+      cancelBubble: noop,
+      preventDefault: noop,
+      stopPropagation: noop,
     })
   }
 
