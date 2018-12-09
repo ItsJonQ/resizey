@@ -38,13 +38,14 @@
   },
   "license": "MIT",
   "keywords": [
-    "rsize",
     "resize",
+    "resizey",
     "element",
     "eventlistener",
     "event",
     "addeventlistener",
-    "removeeventlistener"
+    "removeeventlistener",
+    "rsize"
   ],
   "engines": {
     "node": ">=8"
