@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/ItsJonQ/resizey.svg?branch=master)](https://travis-ci.org/ItsJonQ/resizey)
 [![npm version](https://badge.fury.io/js/resizey.svg)](https://badge.fury.io/js/resizey)
 
-> A tiny library to add/remove listeners on Element resize
+> Resize event listeners on DOM Elements!
 
 ## Features
 

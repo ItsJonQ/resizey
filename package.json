@@ -1,7 +1,7 @@
 {
   "name": "resizey",
   "version": "0.0.12",
-  "description": "A tiny library to add/remove listeners on Element resize",
+  "description": "Resize event listeners on DOM Elements!",
   "main": "dist/index.js",
   "source": "src/index.js",
   "files": [
@@ -45,7 +45,7 @@
     "event",
     "addeventlistener",
     "removeeventlistener",
-    "rsize"
+    "dom"
   ],
   "engines": {
     "node": ">=8"
