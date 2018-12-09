@@ -1,5 +1,5 @@
 // Super secret namespace for our custom event loop.
-export const EVENT_LOOP_KEY = '__SECRET_EVENT_LOOP__'
+export const EVENT_LOOP_KEY = '__RSZY__'
 
 export const SUPPORTED_EVENTS = ['resize', 'resizeStart', 'resizeEnd']
 

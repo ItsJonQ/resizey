@@ -26,7 +26,6 @@ function Listeners() {
   }
 
   function find(element) {
-    if (!element) return
     return state.find(i => i.element === element)
   }
 
@@ -41,7 +40,6 @@ function Listeners() {
   }
 
   function remove(listener) {
-    if (!listener) return
     state.splice(state.indexOf(listener), 1)
   }
 

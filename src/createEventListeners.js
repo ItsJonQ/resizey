@@ -1,5 +1,4 @@
 import listeners from './listeners'
-import ResizeListener from './ResizeListener'
 import {SUPPORTED_EVENTS} from './utils'
 
 /**
