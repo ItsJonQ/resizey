@@ -8,15 +8,18 @@ function EventLoop() {
   const state = {
     debug: undefined,
     keep: true,
+    loop: undefined,
   }
 
   function run(args) {
     if (!state.keep) {
-      cancelAnimationFrame(start)
+      cancelAnimationFrame(state.loop)
+      state.loop = undefined
+    } else {
+      listeners.dispatch()
+      runDebugger(args)
+      requestAnimationFrame(run)
     }
-    listeners.dispatch()
-    runDebugger(args)
-    requestAnimationFrame(start)
   }
 
   function runDebugger(args) {
@@ -25,9 +28,9 @@ function EventLoop() {
     }
   }
 
-  function start(args) {
+  function start() {
     state.keep = true
-    run(args)
+    state.loop = requestAnimationFrame(run)
   }
 
   function stop() {

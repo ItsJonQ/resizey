@@ -34,14 +34,17 @@ test('Stops the loop, when .stop() method is called', () => {
   spy.mockRestore()
 })
 
-test('Tries to dispatch listener on run', () => {
+test.only('Tries to dispatch listener on run', () => {
   const spy = jest.fn()
   const listener = {
     dispatch: spy,
   }
   listeners.add(listener)
 
-  createEventLoop()
+  const loop = createEventLoop()
+
+  // Mock a run cycle
+  loop.run()
 
   expect(spy).toHaveBeenCalled()
 })

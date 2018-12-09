@@ -1,4 +1,4 @@
 import createEventListeners from './createEventListeners'
-import './eventLoop'
+export {default as eventLoop} from './eventLoop'
 
 createEventListeners()
