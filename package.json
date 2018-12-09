@@ -26,7 +26,9 @@
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
     "release": "np --no-cleanup",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prettier": "prettier \"src/**/*.{js,ts,tsx}\" --write",
+    "pretty": "npm run prettier"
   },
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "repository": {
