@@ -1,5 +1,5 @@
 {
-  "name": "eventlistener-resize",
+  "name": "resizey",
   "version": "0.0.10",
   "description": "A tiny library to add/remove listeners on Element resize",
   "main": "dist/index.js",
@@ -31,13 +31,14 @@
   "author": "Jon Quach <hello@jonquach.com> (https://jonquach.com)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itsjonq/eventlistener-resize.git"
+    "url": "git+https://github.com/itsjonq/resizey.git"
   },
   "bugs": {
-    "url": "https://github.com/itsjonq/eventlistener-resize/issues"
+    "url": "https://github.com/itsjonq/resizey/issues"
   },
   "license": "MIT",
   "keywords": [
+    "rsize",
     "resize",
     "element",
     "eventlistener",
