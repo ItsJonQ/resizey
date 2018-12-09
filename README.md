@@ -5,6 +5,12 @@
 
 > A tiny library to add/remove listeners on Element resize
 
+## Features
+
+- **Zero dependencies!**
+- Super tiny, at ~900B gzipped
+- Ultra fast performance
+
 At the moment, the only Element that supports the `resize` event is `window`. It's a super handy event to have!
 **Resizey** adds that same functionality (and a bit more) to regular [Elements](https://developer.mozilla.org/en-US/docs/Web/API/Element).
 
@@ -16,21 +22,15 @@ Unfortunately, it's currently not very well support yet.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Features](#features)
 - [Installation](#installation)
 - [Setup](#setup)
 - [Usage](#usage)
 - [Events](#events)
   - [Resize Event](#resize-event)
+- [Examples](#examples)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-## Features
-
-- **Zero dependencies!**
-- Super tiny, at ~900B gzipped
-- Ultra fast performance
 
 ## Installation
 
@@ -120,6 +120,10 @@ function onResize(event) {
 const element = document.querySelector('.el')
 element.addEventListener('resize', onResize)
 ```
+
+## Examples
+
+Check out this simply [Storybook demo](https://resizey.netlify.com/). It was built with React. However, **Resizey** is plain ol' vanilla JavaScript. It can work with anything JavaScript supported app, plugin, library, or framework.
 
 ## License
 
