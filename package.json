@@ -1,6 +1,6 @@
 {
   "name": "resizey",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Resize event listeners on DOM Elements!",
   "main": "dist/index.js",
   "source": "src/index.js",
