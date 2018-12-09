@@ -390,7 +390,7 @@ stories.add('Stress Test', () => {
                 transition: `all ${
                   10 * index > 5000 ? 5000 : 10 * index
                 }ms linear`,
-                transform: `scaleX(${height / 100}) scaleY(${width / 100})`,
+                transform: `scaleX(${width / 100}) scaleY(${height / 100})`,
                 willChange: 'backgroun transform',
               }}
             />
