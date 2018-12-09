@@ -1,4 +1,4 @@
-# 🐡 resizey
+# 🐡 Resizey
 
 [![Build Status](https://travis-ci.org/ItsJonQ/resizey.svg?branch=master)](https://travis-ci.org/ItsJonQ/resizey)
 [![npm version](https://badge.fury.io/js/resizey.svg)](https://badge.fury.io/js/resizey)
@@ -6,7 +6,7 @@
 > A tiny library to add/remove listeners on Element resize
 
 At the moment, the only Element that supports the `resize` event is `window`. It's a super handy event to have!
-`resizey` adds that same functionality (and a bit more) to regular [Elements](https://developer.mozilla.org/en-US/docs/Web/API/Element).
+**Resizey** adds that same functionality (and a bit more) to regular [Elements](https://developer.mozilla.org/en-US/docs/Web/API/Element).
 
 If you want a more native approach, I recommend checking out [ResizeObserver](https://developers.google.com/web/updates/2016/10/resizeobserver).
 Unfortunately, it's currently not very well support yet.
@@ -46,7 +46,7 @@ yarn add resizey
 
 ## Setup
 
-To start listening to [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) resize events, simply `import` `resizey` somewhere in your project, like so:
+To start listening to [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element) resize events, simply import **Resizey** somewhere in your project, like so:
 
 ```js
 import 'resizey'
@@ -56,7 +56,7 @@ And that's it! 🙌
 
 ## Usage
 
-`resizey`'s events can be added/removed on a DOM element, just like any other native event, like `click`, `mouseenter`, or `mousemove`.
+**Resizey**'s events can be added/removed on a DOM element, just like any other native event, like `click`, `mouseenter`, or `mousemove`.
 
 ```js
 ...
