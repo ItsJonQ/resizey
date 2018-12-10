@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ItsJonQ/resizey.svg?branch=master)](https://travis-ci.org/ItsJonQ/resizey)
 [![npm version](https://badge.fury.io/js/resizey.svg)](https://badge.fury.io/js/resizey)
-[![codecov](https://codecov.io/gh/ItsJonQ/resizey/branch/master/graph/badge.svg)](https://codecov.io/gh/ItsJonQ/resizey)
+[![Coverage Status](https://coveralls.io/repos/github/ItsJonQ/resizey/badge.svg?branch=master)](https://coveralls.io/github/ItsJonQ/resizey?branch=master)
 
 > Resize event listeners on DOM Elements!
 
