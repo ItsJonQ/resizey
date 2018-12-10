@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ItsJonQ/resizey.svg?branch=master)](https://travis-ci.org/ItsJonQ/resizey)
 [![npm version](https://badge.fury.io/js/resizey.svg)](https://badge.fury.io/js/resizey)
+[![codecov](https://codecov.io/gh/ItsJonQ/resizey/branch/master/graph/badge.svg)](https://codecov.io/gh/ItsJonQ/resizey)
 
 > Resize event listeners on DOM Elements!
 
