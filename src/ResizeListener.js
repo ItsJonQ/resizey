@@ -49,7 +49,7 @@ function ResizeListener(element, handler) {
       state.t = 0
     } else {
       updateSize()
-
+      /* istanbul ignore else */
       if (state.t === 0) {
         element.dispatchEvent(
           new ResizeEvent({
@@ -59,16 +59,15 @@ function ResizeListener(element, handler) {
             deltaWidth,
           }),
         )
-      } else {
-        element.dispatchEvent(
-          new ResizeEvent({
-            element,
-            type: 'resize',
-            deltaHeight,
-            deltaWidth,
-          }),
-        )
       }
+      element.dispatchEvent(
+        new ResizeEvent({
+          element,
+          type: 'resize',
+          deltaHeight,
+          deltaWidth,
+        }),
+      )
       state.t = 1
     }
   }

@@ -22,6 +22,7 @@
     "precommit": "zero precommit",
     "start": "npm run dev",
     "test": "zero test --coverage",
+    "test:coverage": "zero test --coverage && open ./coverage/lcov-report/index.html",
     "clean": "rm -rf dist lib build",
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
     "release": "np --no-cleanup",

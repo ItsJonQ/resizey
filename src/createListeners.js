@@ -19,8 +19,9 @@ function Listeners() {
 
   function removeEventListener(element) {
     const listener = find(element)
+    const el = listener.element
     // Remove reference to DOM node, if it no longer exists
-    if (!document.contains(listener.element)) {
+    if (!el || !el.ownerDocument.contains(el)) {
       remove(listener)
     }
   }
