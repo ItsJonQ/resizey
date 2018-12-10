@@ -28,6 +28,7 @@ Unfortunately, it's currently not very well support yet.
 - [Events](#events)
   - [Resize Event](#resize-event)
 - [Examples](#examples)
+- [Strategy](#strategy)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -124,6 +125,12 @@ element.addEventListener('resize', onResize)
 ## Examples
 
 Check out this simply [Storybook demo](https://resizey.netlify.com/). It was built with React. However, **Resizey** is plain ol' vanilla JavaScript. It can work with anything JavaScript supported app, plugin, library, or framework.
+
+## Strategy
+
+**Resizey** uses a polling strategy via [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) to observe Elements and dispatch changes in size. The alternative strategy is to create and inject an iFrame clone (example: `[element-resize-event](https://github.com/KyleAMathews/element-resize-event)`), allowing you to tap into the native `resize` event available to `Window` objects.
+
+For this library, I've opted to go with polling as it does not modify the DOM. This avoids the chances of style side-effects that may occur for Element(s), especially for children-based style rules like `:only-child`.
 
 ## License
 
