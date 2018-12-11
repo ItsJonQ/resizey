@@ -133,6 +133,10 @@ Check out this simply [Storybook demo](https://resizey.netlify.com/). It was bui
 
 For this library, I've opted to go with polling as it does not modify the DOM. This avoids the chances of style side-effects that may occur for Element(s), especially for children-based style rules like `:only-child`.
 
+## See also
+
+- [Scrolley](https://github.com/ItsJonQ/scrolley)
+
 ## License
 
 MIT © [Q](https://jonquach.com)
