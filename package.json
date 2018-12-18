@@ -26,6 +26,7 @@
     "clean": "rm -rf dist lib build",
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
     "release": "np --no-cleanup",
+    "version": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prettier": "prettier \"src/**/*.{js,ts,tsx}\" --write",
